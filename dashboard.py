@@ -42,6 +42,21 @@ with tab1:
 with tab2:
     if FIGURE_PATH.exists():
         st.image(str(FIGURE_PATH))
+
+    significant = response_stats[response_stats["significant"].astype(bool)]
+    if significant.empty:
+        best = response_stats.loc[response_stats["p_value"].idxmin()]
+        st.info(
+            "No population shows a statistically significant difference after "
+            f"Benjamini-Hochberg correction. The strongest signal is `{best['population']}` "
+            f"(raw p = {best['p_value']:.4f}, adjusted p = {best['p_value_adj']:.4f})."
+        )
+    else:
+        names = ", ".join(f"`{p}`" for p in significant["population"])
+        st.info(
+            f"Significant difference after Benjamini-Hochberg correction: {names}."
+        )
+
     st.dataframe(response_stats, use_container_width=True)
 
 with tab3:
