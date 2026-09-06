@@ -35,6 +35,7 @@ In GitHub Codespaces, open the forwarded port for `8501` to view the dashboard.
 ```text
 data/cell-count.csv              Input data file
 load_data.py                     Loads the CSV into SQLite
+verify_load.py                   Integrity checks for the loaded database
 run_pipeline.py                  Runs the full analysis pipeline
 src/db.py                        Database schema and connection setup
 src/frequencies.py               Creates the cell frequency table
@@ -43,7 +44,7 @@ src/queries.py                   Runs the subset queries and the additional B-ce
 dashboard.py                     Streamlit dashboard
 outputs/tables/                  Generated CSV files
 outputs/figures/                 Generated plot
-Makefile                         Commands used for setup, pipeline, and dashboard
+Makefile                         Commands used for setup, pipeline, dashboard, and verification
 ```
 
 I split the code by task so each file has one main job. The database setup is separate from the analysis code, and `run_pipeline.py` connects the steps in the same order as the assignment. This makes the project easier to run again or change later without putting everything into one long script.
