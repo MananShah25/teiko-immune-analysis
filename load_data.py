@@ -96,13 +96,8 @@ def load(conn, projects, subjects, samples, counts):
 
 
 def report(conn):
-    """Print row counts for every table as a load receipt."""
-    print(f"\nDatabase created at: {DB_PATH}")
-    print("-" * 46)
-    for table in ["projects", "subjects", "samples", "cell_counts"]:
-        n = conn.execute(f"SELECT COUNT(*) FROM {table}").fetchone()[0]
-        print(f"  {table:<14} {n:>8,} rows")
-    print("-" * 46)
+    n_samples = conn.execute("SELECT COUNT(*) FROM samples").fetchone()[0]
+    print(f"Loaded {n_samples} samples into {DB_PATH.name}")
 
 
 def main():
