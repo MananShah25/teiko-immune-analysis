@@ -4,6 +4,8 @@ This project analyzes immune cell count data from clinical trial samples. The go
 
 The project creates reproducible output tables, a response comparison plot, and a small Streamlit dashboard to review the results.
 
+Live dashboard: https://teiko-immune-analysis-ms.streamlit.app/
+
 ## How to run
 
 Run these commands from the repository root.
@@ -200,13 +202,19 @@ This means that among melanoma male responders at time `0`, the average B-cell c
 
 The dashboard shows the main output tables and the response comparison plot in one place. It includes summary metrics, the full frequency table, the responder versus non-responder boxplot, the statistical results, the Part 4 subset outputs, and the additional B-cell result.
 
-Start the dashboard with:
+The deployed version is available here:
+
+```text
+https://teiko-immune-analysis-ms.streamlit.app/
+```
+
+To run it locally instead:
 
 ```bash
 make dashboard
 ```
 
-Dashboard URL:
+Local dashboard URL:
 
 ```text
 http://localhost:8501
