@@ -231,3 +231,11 @@ make pipeline
 ```
 
 The pipeline rebuilds the database from `data/cell-count.csv` and regenerates the tables and figure in `outputs/`. This keeps the submitted results tied to the source data instead of relying on manually edited output files.
+
+To confirm the loaded database matches the source CSV, run:
+
+```bash
+make verify
+```
+
+This runs `verify_load.py`, which checks for orphaned rows, confirms every sample has all five populations, and reconciles the total cell count against the CSV.

@@ -1,4 +1,6 @@
-PYTHON=python
+PYTHON ?= python3
+
+.PHONY: setup pipeline dashboard verify
 
 setup:
 	$(PYTHON) -m pip install -r requirements.txt
@@ -7,4 +9,7 @@ pipeline:
 	$(PYTHON) run_pipeline.py
 
 dashboard:
-	streamlit run dashboard.py
+	$(PYTHON) -m streamlit run dashboard.py
+
+verify:
+	$(PYTHON) verify_load.py

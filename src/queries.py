@@ -136,5 +136,5 @@ def main():
         print(f"{name}: {len(df)} rows")
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
